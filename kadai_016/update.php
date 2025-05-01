@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 
         $message = "書籍を{$count}件編集しました。";
 
-        // 商品一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
+        // 書籍一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
         header("Location: booklist.php?message={$message}");
     } catch (PDOException $e) {
         exit($e->getMessage());
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
             exit('idパラメータの値が不正です。');
         }
 
-        // genresテーブルからgenre_codeカラムのデータを取得するためのSQL文を変数$sql_select_vendor_codesに代入する
+        // genresテーブルからgenre_codeカラムのデータを取得するためのSQL文を変数$sql_select_genre_codesに代入する
         $sql_select_genre_codes = 'SELECT genre_code FROM genres';
 
         // SQL文を実行する
@@ -133,7 +133,7 @@ if (isset($_GET['id'])) {
                         <?php
                         // 配列の中身を順番に取り出し、セレクトボックスの選択肢として出力する
                         foreach ($genre_codes as $genre_code) {
-                            // もし変数$vendor_codeが商品の仕入先コードの値と一致していれば、selected属性をつけて初期値にする
+                            // もし変数$genre_codeが商品の仕入先コードの値と一致していれば、selected属性をつけて初期値にする
                             if ($genre_code === $book['genre_code']) {
                                 echo "<option value='{$genre_code}' selected>{$genre_code}</option>";
                             } else {

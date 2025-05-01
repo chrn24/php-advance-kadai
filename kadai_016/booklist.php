@@ -13,7 +13,7 @@ try {
         $order = NULL;
     }
 
-    // keywordパラメータの値が存在すれば（商品名を検索したとき）、その値を変数$keywordに代入する    
+    // keywordパラメータの値が存在すれば（書籍名を検索したとき）、その値を変数$keywordに代入する    
     if (isset($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
     } else {
@@ -74,7 +74,7 @@ try {
         <article class="books">
             <h1>書籍一覧</h1>
             <?php
-            // （商品の登録・編集・削除後）messageパラメータの値を受け取っていれば、それを表示する
+            // （書籍の登録・編集・削除後）messageパラメータの値を受け取っていれば、それを表示する
             if (isset($_GET['message'])) {
                 echo "<p class='success'>{$_GET['message']}</p>";
             }
@@ -89,10 +89,10 @@ try {
                     </a>
                     <form action="booklist.php" method="get" class="search-form">
                         <input type="hidden" name="order" value="<?= $order ?>">
-                        <input type="text" class="search-box" placeholder="商品名で検索" name="keyword" value="<?= $keyword ?>">
+                        <input type="text" class="search-box" placeholder="書籍名で検索" name="keyword" value="<?= $keyword ?>">
                     </form>
                 </div>
-                <a href="register.php" class="btn">商品登録</a>
+                <a href="register.php" class="btn"> 書籍登録</a>
             </div>
             <table class="books-table">
                 <tr>
