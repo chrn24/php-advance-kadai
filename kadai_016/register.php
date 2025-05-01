@@ -30,14 +30,14 @@ if (isset($_POST['submit'])) {
 
         $message = "書籍を{$count}件登録しました。";
 
-        // 商品一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
+        // 書籍一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
         header("Location: booklist.php?message={$message}");
     } catch (PDOException $e) {
         exit($e->getMessage());
     }
 }
 
-// セレクトボックスの選択肢として設定するため、仕入先コードの配列を取得する
+// セレクトボックスの選択肢として設定するため、ジャンルコードの配列を取得する
 try {
     $pdo = new PDO($dsn, $user, $password);
 
@@ -80,7 +80,7 @@ try {
         <article class="registration">
             <h1>書籍登録</h1>
             <div class="back">
-                <a href="toppage.php" class="btn">&lt; 戻る</a>
+                <a href="booklist.php" class="btn">&lt; 戻る</a>
             </div>
             <form action="register.php" method="post" class="registration-form">
                 <div>

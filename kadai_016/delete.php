@@ -20,7 +20,7 @@ try {
 
     $message = "書籍を{$count}件削除しました。";
 
-    // 商品一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
+    // 書籍一覧ページにリダイレクトさせる（同時にmessageパラメータも渡す）
     header("Location: booklist.php?message={$message}");
 } catch (PDOException $e) {
     exit($e->getMessage());
